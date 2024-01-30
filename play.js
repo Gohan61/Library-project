@@ -15,6 +15,7 @@ function Book(author, title, pages, read) {
 function displayBooks(array) {
   const newDiv = document.createElement("div");
   const removeButton = document.createElement("button");
+  const readButton = document.createElement("button");
   const displayAuthor = document.createElement("p");
   const displayTitle = document.createElement("p");
   const displayPages = document.createElement("p");
@@ -29,6 +30,16 @@ function displayBooks(array) {
   removeButton.addEventListener("click", () => {
     newDiv.remove();
   });
+  readButton.textContent = "Change read/unread";
+  readButton.addEventListener("click", () => {
+    if (myLibrary[indexInLibrary]["read"] === "yes") {
+      myLibrary[indexInLibrary]["read"] = "no";
+      displayRead.textContent = "Read: " + array.slice(-1)[0]["read"];
+    } else {
+      myLibrary[indexInLibrary]["read"] = "yes";
+      displayRead.textContent = "Read: " + array.slice(-1)[0]["read"];
+    }
+  });
   displayAuthor.textContent = "Author: " + array.slice(-1)[0]["author"];
   displayTitle.textContent = "Title: " + array.slice(-1)[0]["title"];
   displayPages.textContent = "Pages: " + array.slice(-1)[0]["pages"];
@@ -40,7 +51,8 @@ function displayBooks(array) {
     displayTitle,
     displayPages,
     displayRead,
-    removeButton
+    removeButton,
+    readButton
   );
 }
 
