@@ -1,0 +1,121 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  display: grid;
+  justify-items: center;
+  background-color: rgb(83, 35, 0, 0.8);
+  gap: 30px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2em;
+  color: beige;
+  grid-area: 1 / 1;
+}
+
+.newBook,
+button[type="submit"],
+.library button {
+  background-color: blanchedalmond;
+  color: black;
+  border: 2px dotted black;
+  padding: 20px;
+}
+
+.formDiv {
+  grid-area: 2 / 1;
+}
+
+#newBookForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(12, auto);
+  grid-auto-flow: column;
+  gap: 20px;
+  max-height: 300px;
+}
+
+.library {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr) minmax(300px, 1fr)
+  );
+  max-width: 90vw;
+  gap: 20px;
+}
+
+.library > div {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-rows: repeat(3, auto);
+}
+
+.library > div > p {
+  color: antiquewhite;
+}
+
+.formDiv,
+.library > div {
+  border: 1px solid antiquewhite;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+#newBookForm input {
+  border-radius: 10px;
+}
+
+label[for="author"] {
+  grid-area: 1 / 1;
+}
+
+#author {
+  grid-area: 1 / 2;
+}
+
+label[for="title"] {
+  grid-area: 2 / 1;
+}
+
+#title {
+  grid-area: 2 / 2;
+}
+
+label[for="pages"] {
+  grid-area: 3 / 1;
+}
+
+#pages {
+  grid-area: 3 / 2;
+}
+
+label[for="read"] {
+  grid-area: 4 / 1;
+  justify-self: center;
+}
+
+label[for="not-read"] {
+  grid-area: 4 / 2;
+  justify-self: center;
+}
+
+#read {
+  grid-area: 5 / 1;
+}
+
+#not-read {
+  grid-area: 5 / 2;
+}
+
+button[type="submit"] {
+  grid-area: 6 / 2;
+  justify-self: flex-end;
+}
