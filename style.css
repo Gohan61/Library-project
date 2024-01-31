@@ -53,10 +53,17 @@ button[type="submit"],
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-template-rows: repeat(3, auto);
+  position: relative;
 }
 
 .library > div > p {
   color: antiquewhite;
+}
+
+.library > div i {
+  position: absolute;
+  top: 156px;
+  left: 433px;
 }
 
 .formDiv,

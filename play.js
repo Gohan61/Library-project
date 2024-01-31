@@ -24,6 +24,22 @@ function displayBooks(array) {
   const indexInLibrary = myLibrary
     .map((e) => e.author)
     .indexOf(array.slice(-1)[0]["author"]);
+  const readIcon = document.createElement("i");
+  readIcon.setAttribute("class", "material-icons");
+  readIcon.textContent = "check box";
+  const notReadIcon = document.createElement("i");
+  notReadIcon.setAttribute("class", "material-icons");
+  notReadIcon.textContent = "clear";
+
+  console.log(indexInLibrary);
+
+  if (myLibrary[indexInLibrary]["read"] === "yes") {
+    readIcon.style.display = "";
+    notReadIcon.style.display = "none";
+  } else {
+    readIcon.style.display = "none";
+    notReadIcon.style.display = "";
+  }
 
   newDiv.setAttribute("index", indexInLibrary);
 
@@ -35,10 +51,14 @@ function displayBooks(array) {
   readButton.addEventListener("click", () => {
     if (myLibrary[indexInLibrary]["read"] === "yes") {
       myLibrary[indexInLibrary]["read"] = "no";
-      displayRead.textContent = "Read: " + array.slice(-1)[0]["read"];
+      displayRead.textContent = "Read: no";
+      readIcon.style.display = "none";
+      notReadIcon.style.display = "";
     } else {
       myLibrary[indexInLibrary]["read"] = "yes";
-      displayRead.textContent = "Read: " + array.slice(-1)[0]["read"];
+      displayRead.textContent = "Read: yes";
+      readIcon.style.display = "";
+      notReadIcon.style.display = "none";
     }
   });
   displayAuthor.textContent = "Author: " + array.slice(-1)[0]["author"];
@@ -53,7 +73,9 @@ function displayBooks(array) {
     displayPages,
     displayRead,
     removeButton,
-    readButton
+    readButton,
+    readIcon,
+    notReadIcon
   );
 }
 
