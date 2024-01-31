@@ -72,4 +72,5 @@ newBookForm.addEventListener("submit", (form) => {
   myLibrary.push(new Book(author.value, title.value, pages.value, read.value));
   newBookForm.reset();
   displayBooks(myLibrary);
+  formDiv.style.display = "none";
 });
