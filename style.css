@@ -60,10 +60,28 @@ button[type="submit"],
   color: antiquewhite;
 }
 
+.library p:nth-child(1) {
+  grid-area: 1 / 1;
+}
+
+.library p:nth-child(2) {
+  grid-area: 1 / 2;
+}
+
+.library p:nth-child(3) {
+  grid-area: 2 / 1;
+  width: 80%;
+}
+
+.library p:nth-child(4) {
+  grid-area: 2 / 2;
+}
+
 .library > div i {
-  position: absolute;
-  top: 156px;
-  left: 433px;
+  grid-area: 2 / 2;
+  align-self: center;
+  margin-left: 162px;
+  width: 5px;
 }
 
 .formDiv,
